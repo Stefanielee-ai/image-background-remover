@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Image Background Remover — Remove BG Online</title>
+  <meta name="description" content="Remove image background online for free. Upload JPG, PNG or WebP and get a transparent PNG in seconds. Powered by AI." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">✂️ BGRemover</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Image Background Remover</h1>
+      <p class="subtitle">Upload a photo and remove the background instantly — free, fast, and private.</p>
+
+      <div class="upload-area" id="uploadArea">
+        <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" hidden />
+        <div class="upload-inner" id="uploadInner">
+          <div class="upload-icon">🖼️</div>
+          <p class="upload-text">Drag & drop your image here</p>
+          <p class="upload-sub">or</p>
+          <button class="btn-upload" id="btnUpload">Choose Image</button>
+          <p class="upload-hint">Supports JPG, PNG, WebP · Max 10MB</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="result-section" id="resultSection" style="display:none">
+      <div class="result-grid">
+        <div class="result-card">
+          <p class="card-label">Original</p>
+          <img id="originalImg" src="" alt="Original image" />
+        </div>
+        <div class="result-card">
+          <p class="card-label">Background Removed</p>
+          <div class="checker-bg">
+            <img id="resultImg" src="" alt="Background removed" />
+          </div>
+        </div>
+      </div>
+      <div class="download-row">
+        <button class="btn-download" id="btnDownload">⬇️ Download PNG</button>
+        <button class="btn-reset" id="btnReset">Try Another Image</button>
+      </div>
+    </section>
+
+    <section class="loading-section" id="loadingSection" style="display:none">
+      <div class="spinner"></div>
+      <p>Removing background...</p>
+    </section>
+
+    <section class="error-section" id="errorSection" style="display:none">
+      <p class="error-msg" id="errorMsg">Something went wrong.</p>
+      <button class="btn-reset" id="btnRetry">Try Again</button>
+    </section>
+
+    <section class="features">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Fast</h3>
+        <p>Results in seconds, powered by AI.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🆓</div>
+        <h3>Free</h3>
+        <p>No sign-up required. Just upload and download.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Private</h3>
+        <p>Images are processed in memory and never stored.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 BGRemover · <a href="/privacy">Privacy Policy</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
