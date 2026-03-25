@@ -1,50 +1,40 @@
 # Image Background Remover
 
-Free online image background remover powered by [Remove.bg API](https://www.remove.bg/api), deployed on Cloudflare Pages + Workers.
-
-## Features
-
-- Upload JPG, PNG, WebP (up to 10MB)
-- AI-powered background removal
-- Download transparent PNG
-- No storage — images processed in memory only
-- Mobile responsive
+Free online image background remover built with **Next.js + Tailwind CSS**, deployed on **Cloudflare Pages**.
 
 ## Tech Stack
 
-- **Frontend**: Vanilla HTML/CSS/JS → Cloudflare Pages
-- **Backend**: Cloudflare Workers → Remove.bg API
+- **Frontend**: Next.js 14 (App Router) + Tailwind CSS
+- **API Route**: Next.js Edge Runtime → Remove.bg API
+- **Deploy**: Cloudflare Pages
 
 ## Local Development
 
 ```bash
-# Install wrangler
-npm install -g wrangler
+npm install
 
-# Set your API key
-wrangler secret put REMOVE_BG_API_KEY
+# Create .env.local
+echo "REMOVE_BG_API_KEY=your_key_here" > .env.local
 
-# Run worker locally
-wrangler dev worker/index.js
-
-# Open index.html in browser (update WORKER_URL in app.js to http://localhost:8787/api/remove-bg)
+npm run dev
+# Open http://localhost:3000
 ```
 
-## Deploy
+## Deploy to Cloudflare Pages
 
-```bash
-# Deploy worker
-wrangler deploy
-
-# Deploy frontend to Cloudflare Pages
-# Connect this repo in Cloudflare Pages dashboard, build command: none, output: /
-```
+1. Connect this repo in [Cloudflare Pages](https://pages.cloudflare.com/)
+2. Build settings:
+   - **Framework preset**: Next.js
+   - **Build command**: `npm run build`
+   - **Output directory**: `.next`
+3. Add environment variable: `REMOVE_BG_API_KEY` = your Remove.bg API key
+4. Deploy
 
 ## Environment Variables
 
 | Variable | Description |
 |----------|-------------|
-| `REMOVE_BG_API_KEY` | Your Remove.bg API key (set via wrangler secret) |
+| `REMOVE_BG_API_KEY` | Your [Remove.bg API key](https://www.remove.bg/api) |
 
 ## License
 
